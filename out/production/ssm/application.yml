@@ -1,0 +1,22 @@
+student:
+  age: 18
+  name: "张三"
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/springBoot
+    username: root
+    password: root
+  thymeleaf:
+    cache: false
+  devtools:
+    restart:
+      enabled: true
+server:
+  port: 81
+mybatis:
+  mapper-locations: classpath:mapper/*/*.xml
+  type-aliases-package: com.star.vo
+  configuration:
+    map-underscore-to-camel-case: true
+
