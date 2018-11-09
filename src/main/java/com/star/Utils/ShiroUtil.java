@@ -21,6 +21,7 @@ public class ShiroUtil {
         //对所有用户认证anon
         map.put("/doLogin", "anon");
         map.put("/**/*.js", "anon");
+        map.put("/student/package", "anon");
         List<Permission> list = authMapper.findAll();
         //List<UserRole> userRoles=authMapper.findAllUserRoles();
         List<Role> roles = authMapper.findAllRoles();
