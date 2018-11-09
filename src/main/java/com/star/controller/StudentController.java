@@ -37,21 +37,35 @@ public class StudentController {
     }
 
     @GetMapping("package")
+    Ret test() throws InterruptedException {
+        String str = "rm -rf /usr/app/ssm";
+        build(str);
+        str="git clone https://github.com/972793884/shiro-for-spring-springMVC-mybatis.git /usr/app/ssm";
+        build(str);
+        str="cd /usr/app/ssm";
+        build(str);
+        str = "mvn clean compile package -Dmaven.test.skip=true -X";
+        build(str);
+        str="mv /usr/app/ssm/target/ssm-0.0.1-SNAPSHOT.jar /usr/app";
+        build(str);
+        str = "sh /usr/app/start.sh";
+        build(str);
+        return Ret.ok();
+    }
+
     Ret build(String str) throws InterruptedException {
-        if (str==null)
-             str ="mvn clean compile package -Dmaven.test.skip=true -X";
-        Process p =null;
+        Process p = null;
         try {
             p = Runtime.getRuntime().exec(str);
             System.out.println("--------------------开始执行--------------------------");
-            InputStream inputStream =p.getInputStream();
-            byte[] data=new byte[800];
-            while ((inputStream.read(data,0,data.length))!=-1){
+            InputStream inputStream = p.getInputStream();
+            byte[] data = new byte[800];
+            while ((inputStream.read(data, 0, data.length)) != -1) {
                 System.out.println(new String(data));
             }
 
-            InputStream e =p.getErrorStream();
-            while ((e.read(data,0,data.length-1))!=-1){
+            InputStream e = p.getErrorStream();
+            while ((e.read(data, 0, data.length - 1)) != -1) {
                 System.out.println(new String(data));
             }
             p.getOutputStream().close();
@@ -60,14 +74,12 @@ public class StudentController {
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
-            if (p!=null){
+            if (p != null) {
                 p.waitFor();
             }
             p.destroy();
             System.out.println("--------------------执行完毕--------------------------");
         }
-        if (!str.equals("sh /root/ssm/start.sh"))
-            build("sh /root/ssm/start.sh");
         return Ret.ok();
     }
 
