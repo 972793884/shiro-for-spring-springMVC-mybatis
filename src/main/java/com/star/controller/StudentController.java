@@ -36,14 +36,20 @@ public class StudentController {
         return studentService.all();
     }
 
-    @GetMapping("package")
+    @PostMapping("package")
     Ret test() throws InterruptedException {
         String str = "sh /usr/app/start.sh";
         System.out.println("执行脚本");
         build(str);
         return Ret.ok();
     }
-
+    @GetMapping("package")
+    Ret test2() throws InterruptedException {
+        String str = "sh /usr/app/start.sh";
+        System.out.println("执行脚本");
+        build(str);
+        return Ret.ok();
+    }
     Ret build(String str) throws InterruptedException {
         Process p = null;
         try {
