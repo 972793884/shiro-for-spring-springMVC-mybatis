@@ -38,17 +38,8 @@ public class StudentController {
 
     @GetMapping("package")
     Ret test() throws InterruptedException {
-        String str = "rm -rf /usr/app/ssm";
-        build(str);
-        str="git clone https://github.com/972793884/shiro-for-spring-springMVC-mybatis.git /usr/app/ssm";
-        build(str);
-        str="cd /usr/app/ssm";
-        build(str);
-        str = "mvn clean compile package -Dmaven.test.skip=true -X";
-        build(str);
-        str="mv /usr/app/ssm/target/ssm-0.0.1-SNAPSHOT.jar /usr/app";
-        build(str);
-        str = "sh /usr/app/start.sh";
+        String str = "sh /usr/app/start.sh";
+        System.out.println("执行脚本");
         build(str);
         return Ret.ok();
     }
