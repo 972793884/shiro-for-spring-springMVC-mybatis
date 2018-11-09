@@ -47,8 +47,8 @@ public class StudentController {
     Ret build(String str) throws InterruptedException {
         Process p = null;
         try {
-            p = Runtime.getRuntime().exec(str);
             System.out.println("--------------------开始执行--------------------------");
+            p = Runtime.getRuntime().exec(str);
             InputStream inputStream = p.getInputStream();
             byte[] data = new byte[800];
             while ((inputStream.read(data, 0, data.length)) != -1) {
