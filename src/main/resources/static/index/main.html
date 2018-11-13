@@ -47,7 +47,7 @@
                     <td>{{item.id}}</td>
                     <td>{{item.name}}</td>
                     <td>{{item.age}}</td>
-                    <td>{{item.love.name}}</td>
+                    <td>{{item.爱好}}</td>
                     <td>
                         <a href="javascript:void (0)" class="layui-btn layui-btn-sm" lay-even="edit" @click="add()">修改</a>
                         <a href="javascript:void (0)" class="layui-btn layui-btn-danger layui-btn-sm"
@@ -145,7 +145,7 @@
                     shade: false
                 });
                 $.ajax({
-                    url: "http://localhost:8080/list",
+                    url: "/student/list",
                     data: {
                         age: $("#age").val(),
                         name: $("#name").val(),

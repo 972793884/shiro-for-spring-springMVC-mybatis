@@ -1,5 +1,6 @@
 package com.star.controller;
 
+import com.star.Utils.PageUtils;
 import com.star.Utils.Record;
 import com.star.Utils.Ret;
 import com.star.Utils.SpringUtil;
@@ -30,10 +31,12 @@ public class StudentController {
     private StudentService studentService;
     @Autowired
     ShiroServiceImpl shiroService;
-
+    @Autowired
+    PageUtils pageUtils;
     @GetMapping("list")
-    List<Student> findById(HttpServletResponse response, @RequestParam("name") String name, @RequestParam("age") Integer age, @RequestParam("page") Integer page, @RequestParam("pageSize") Integer pageSize) {
-        return studentService.all();
+    PageUtils findById(HttpServletResponse response, @RequestParam("name") String name, @RequestParam("age") Integer age, @RequestParam("page") Integer page, @RequestParam("pageSize") Integer pageSize) {
+         pageUtils.setPageList(studentService.all(),page==null?1:page,pageSize);
+        return pageUtils;
     }
 
     @PostMapping("package")

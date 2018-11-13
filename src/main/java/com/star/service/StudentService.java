@@ -9,7 +9,7 @@ public interface StudentService {
 
     List<Student> findById(Integer id);
 
-    List<Student> all();
+    List<Record> all();
 
     List<Record> findAll();
 }

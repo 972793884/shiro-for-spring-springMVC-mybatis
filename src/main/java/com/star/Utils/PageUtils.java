@@ -1,10 +1,12 @@
 package com.star.Utils;
 
 
+import org.springframework.stereotype.Component;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-
+@Component
 public  class PageUtils implements Serializable {
     //当前页
     private  Integer page;
@@ -40,6 +42,7 @@ public  class PageUtils implements Serializable {
             list=null;
             return;
         }
+        list.clear();
         list.addAll(myList.subList(star, end));
     }
     public void setPage(Integer page) {
