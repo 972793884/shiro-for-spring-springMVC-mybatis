@@ -18,4 +18,14 @@ public class PermissionServiceImpl implements PermissionService {
         return authMapper.findPermissonListByRoleId(roleid);
 
     }
+
+    @Override
+    public List<Permission> getAll() {
+        return authMapper.findAll();
+    }
+
+    @Override
+    public List<Permission> getPermsById(Integer id) {
+        return null;
+    }
 }

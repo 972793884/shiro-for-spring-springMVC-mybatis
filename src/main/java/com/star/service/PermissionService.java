@@ -6,4 +6,8 @@ import java.util.List;
 
 public interface PermissionService {
     List<Permission> findPermissonListByRoleId(Integer roleid);
+
+    List<Permission> getAll();
+
+    List<Permission> getPermsById(Integer id);
 }
