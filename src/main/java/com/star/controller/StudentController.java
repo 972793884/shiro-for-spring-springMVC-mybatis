@@ -35,7 +35,7 @@ public class StudentController {
     PageUtils pageUtils;
     @GetMapping("list")
     PageUtils findById(HttpServletResponse response, @RequestParam("name") String name, @RequestParam("age") Integer age, @RequestParam("page") Integer page, @RequestParam("pageSize") Integer pageSize) {
-         pageUtils.setPageList(studentService.all(),page==null?1:page,pageSize);
+         pageUtils.setPageList(studentService.all(name,age),page==null?1:page,pageSize);
         return pageUtils;
     }
 

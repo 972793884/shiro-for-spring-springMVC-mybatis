@@ -19,4 +19,6 @@ mybatis:
   type-aliases-package: com.star.vo
   configuration:
     map-underscore-to-camel-case: true
-
+logging:
+  level:
+    com.star.mapper: debug

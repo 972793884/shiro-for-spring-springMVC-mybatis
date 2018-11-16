@@ -9,7 +9,7 @@ public interface StudentService {
 
     List<Student> findById(Integer id);
 
-    List<Record> all();
+    List<Record> all(String name, Integer age);
 
     List<Record> findAll();
 }

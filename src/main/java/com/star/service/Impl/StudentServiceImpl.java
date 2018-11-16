@@ -25,8 +25,9 @@ public class StudentServiceImpl implements StudentService {
         return studentMapper.findById(1);
     }
 
-    public List<Record> all() {
-        return studentMapper.all();
+    public List<Record> all(String name, Integer age) {
+
+        return studentMapper.all(name,age);
     }
 
     @Override
