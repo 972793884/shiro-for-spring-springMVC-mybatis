@@ -46,7 +46,7 @@
                 <li class="layui-nav-item layui-nav-itemed">
                     <a class="" href="javascript:;">所有商品</a>
                     <dl class="layui-nav-child">
-                        <dd><a href="javascript:;">列表一</a></dd>
+                        <dd><a href="javascript:;" onclick="show(1)">资源列表</a></dd>
                         <dd><a href="javascript:;">列表二</a></dd>
                         <dd><a href="javascript:;">列表三</a></dd>
                         <dd><a href="">超链接</a></dd>
@@ -85,6 +85,11 @@
         var element = layui.element;
 
     });
+    function show(num) {
+        if (num==1){
+            $("iframe").attr("src","/auth/main.html")
+        }
+    }
 </script>
 </body>
 </html>

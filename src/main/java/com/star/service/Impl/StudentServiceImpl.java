@@ -26,7 +26,9 @@ public class StudentServiceImpl implements StudentService {
     }
 
     public List<Record> all(String name, Integer age) {
-
+        if (name!=null){
+            name="%"+name+"%";
+        }
         return studentMapper.all(name,age);
     }
 

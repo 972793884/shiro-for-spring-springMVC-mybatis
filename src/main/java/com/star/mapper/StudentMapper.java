@@ -15,7 +15,9 @@ public interface StudentMapper {
     List<Student> findById(Integer id);
 
     List<Student> list();
-    @Select("select *,l.name as '爱好' from student s,love l where s.aihao=l.id and s.name like #{name}  and age =#{age}")
+    @Select("<script>"+
+            "select *,l.name as '爱好' from student s,love l where s.aihao=l.id and s.name like #{name}  <if test='age!=null'> and age =#{age} </if>"+
+            "</script>")
     List<Record> all(@Param("name") String name,@Param("age") Integer age);
     @Select("select * from student")
     List<Map<String,String>> findAll();
