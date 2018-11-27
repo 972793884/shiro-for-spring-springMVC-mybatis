@@ -20,6 +20,7 @@ public class ShiroUtil {
         map.put("/logout", "logout");
         //对所有用户认证anon
         map.put("/doLogin", "anon");
+        map.put("/soft/**","anon");
         map.put("/**/*.js", "anon");
         map.put("/student/package", "anon");
         List<Permission> list = authMapper.findAll();
