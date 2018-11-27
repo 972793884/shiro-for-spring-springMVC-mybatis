@@ -15,7 +15,7 @@ import java.io.IOException;
 public class UploadController {
     @RequestMapping("soft")
     void soft(@RequestParam("name") String name, HttpServletResponse response) {
-        File file = new File("/root/soft" + name);
+        File file = new File("/root/soft/" + name);
         FileInputStream inputStream = null;
         try {
             inputStream = new FileInputStream(file);
