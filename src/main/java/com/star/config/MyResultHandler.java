@@ -18,6 +18,7 @@ public class MyResultHandler implements ResultHandler {
         for (Object key : resultObject.keySet()) {
             record.set(key, resultObject.get(key));
         }
+        results.clear();
         results.add( record);
     }
 
