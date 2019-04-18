@@ -51,8 +51,7 @@
                     <td style="width: 10%;text-align: center">{{item.needallroles==1?"是":"否"}}</td>
                     <td style="width: 10%;text-align: center">{{item.needallprems==1?"是":"否"}}</td>
                     <td style="width: 10%;text-align: center">
-                        <a href="javascript:void (0)" class="layui-btn layui-btn-normal layui-btn-sm" lay-even="search" @click="search(item.id)">查看</a>
-                        <a href="javascript:void (0)" class="layui-btn layui-btn-sm" lay-even="edit" @click="update(item.id,item.needallroles,item.needallprems)">修改</a>
+                        <a href="javascript:void (0)" class="layui-btn layui-btn-sm" lay-even="edit" @click="add()">修改</a>
                         <a href="javascript:void (0)" class="layui-btn layui-btn-danger layui-btn-sm"
                            lay-even="del">删除</a>
                     </td>
@@ -172,43 +171,7 @@
                     area : ['85%' , '85%'],
                     content: '666',
                 });
-            },
-            search:function (id) {
-                if (window.localStorage) {
-                    //存储变量的值
-                    localStorage.id = id;
-                } else {
-                    alert("NOT SUPPORT");
-                }
-                layer.open({
-                    type: 2,
-                    title: '查看详情',
-                    maxmin: true,
-                    shadeClose: true, //点击遮罩关闭层
-                    area : ['85%' , '85%'],
-                    content: 'xiangqing.html',
-                });
-            },
-            update:function (id,nr,np) {
-                if (window.localStorage) {
-                    //存储变量的值
-                    localStorage.id = id;
-                    localStorage.nr = nr;
-                    localStorage.np = np;
-
-                } else {
-                    alert("NOT SUPPORT");
-                }
-                layer.open({
-                    type: 2,
-                    title: '查看详情',
-                    maxmin: true,
-                    shadeClose: true, //点击遮罩关闭层
-                    area : ['85%' , '85%'],
-                    content: 'update.html',
-                });
-            },
-
+            }
         }
     });
 </script>
