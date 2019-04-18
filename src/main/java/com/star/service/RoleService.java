@@ -6,5 +6,11 @@ import java.util.List;
 
 public interface RoleService {
 
-    List<Role> getRolesById(Integer id);
+    List<Role> getRolesByPerId(Integer id);
+
+    List<Role> getUsefulRoles(Integer id);
+
+    Integer saveRole(Role role);
+
+    Integer delRole(String ids);
 }

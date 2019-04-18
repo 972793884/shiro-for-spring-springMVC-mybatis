@@ -11,6 +11,7 @@ import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.apache.shiro.authz.annotation.RequiresRoles;
 import org.apache.shiro.spring.web.ShiroFilterFactoryBean;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Required;
 import org.springframework.context.ApplicationContextAware;
 import org.springframework.ui.ModelMap;
 import org.springframework.util.ClassUtils;
@@ -33,61 +34,20 @@ public class StudentController {
     ShiroServiceImpl shiroService;
     @Autowired
     PageUtils pageUtils;
+
+    //学生查询列表   参数  name  age  page  pageSize
     @GetMapping("list")
     PageUtils findById(HttpServletResponse response, @RequestParam("name") String name, @RequestParam("age") Integer age, @RequestParam("page") Integer page, @RequestParam("pageSize") Integer pageSize) {
          pageUtils.setPageList(studentService.all(name,age),page==null?1:page,pageSize);
         return pageUtils;
     }
 
-    @PostMapping("package")
-    Ret test() throws InterruptedException {
-        String str = "sh /usr/app/start.sh";
-        System.out.println("执行脚本");
-        build(str);
-        return Ret.ok();
-    }
-    @GetMapping("package")
-    Ret test2() throws InterruptedException {
-        String str = "sh /usr/app/start.sh";
-        System.out.println("执行脚本");
-        build(str);
-        return Ret.ok();
-    }
-    Ret build(String str) throws InterruptedException {
-        Process p = null;
-        try {
-            System.out.println("--------------------开始执行--------------------------");
-            p = Runtime.getRuntime().exec(str);
-            InputStream inputStream = p.getInputStream();
-            byte[] data = new byte[800];
-            while ((inputStream.read(data, 0, data.length)) != -1) {
-                System.out.println(new String(data));
-            }
-
-            InputStream e = p.getErrorStream();
-            while ((e.read(data, 0, data.length - 1)) != -1) {
-                System.out.println(new String(data));
-            }
-            p.getOutputStream().close();
-            p.getInputStream().close();
-            p.getErrorStream().close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } finally {
-            if (p != null) {
-                p.waitFor();
-            }
-            p.destroy();
-            System.out.println("--------------------执行完毕--------------------------");
-        }
-        return Ret.ok();
-    }
 
 
     @GetMapping("add")
         //@RequiresPermissions("student:add")
-    Ret add(HttpServletResponse response) {
-        System.out.println("add操作");
+    Ret save(HttpServletResponse response,Student student) {
+        Integer result = studentService.save(student);
         return Ret.ok().set("msg", "add");
     }
 
@@ -133,4 +93,89 @@ public class StudentController {
         }
         return Ret.ok();
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    @PostMapping("package")
+    Ret test() throws InterruptedException {
+        String str = "sh /usr/app/start.sh";
+        System.out.println("执行脚本");
+        build(str);
+        return Ret.ok();
+    }
+    @GetMapping("package")
+    Ret test2() throws InterruptedException {
+        String str = "sh /usr/app/start.sh";
+        System.out.println("执行脚本");
+        build(str);
+        return Ret.ok();
+    }
+    Ret build(String str) throws InterruptedException {
+        Process p = null;
+        try {
+            System.out.println("--------------------开始执行--------------------------");
+            p = Runtime.getRuntime().exec(str);
+            InputStream inputStream = p.getInputStream();
+            byte[] data = new byte[800];
+            while ((inputStream.read(data, 0, data.length)) != -1) {
+                System.out.println(new String(data));
+            }
+
+            InputStream e = p.getErrorStream();
+            while ((e.read(data, 0, data.length - 1)) != -1) {
+                System.out.println(new String(data));
+            }
+            p.getOutputStream().close();
+            p.getInputStream().close();
+            p.getErrorStream().close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            if (p != null) {
+                p.waitFor();
+            }
+            p.destroy();
+            System.out.println("--------------------执行完毕--------------------------");
+        }
+        return Ret.ok();
+    }
+
 }

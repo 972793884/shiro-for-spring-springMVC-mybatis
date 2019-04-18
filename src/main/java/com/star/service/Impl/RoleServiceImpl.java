@@ -14,8 +14,27 @@ public class RoleServiceImpl implements RoleService {
     @Autowired
     private RoleMapper roleMapper;
     @Override
-    public List<Role> getRolesById(Integer id) {
+    public List<Role> getRolesByPerId(Integer id) {
 
-        return roleMapper.getRolesById(id);
+        return roleMapper.getRolesByPerId(id);
     }
+
+    @Override
+    public List<Role> getUsefulRoles(Integer id) {
+        return roleMapper.getUsefulRoles(id);
+    }
+
+    @Override
+    public Integer saveRole(Role role) {
+        if (role.getId()==null)
+            return roleMapper.saveRole(role);
+        else
+            return roleMapper.updateRole(role);
+    }
+
+    @Override
+    public Integer delRole(String ids) {
+        return roleMapper.delRole(ids);
+    }
+
 }

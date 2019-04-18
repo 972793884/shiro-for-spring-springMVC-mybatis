@@ -1,21 +1,25 @@
 package com.star.vo;
 
 
+
 import java.io.Serializable;
+import java.util.Date;
 
 /**
  * 
  * 
  * @author zzq
  * @email 972793884@qq.com
- * @date 2018-10-23 15:24:21
+ * @date 2019-04-10 13:55:23
  */
+
 public class Role implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	/**
 	 * 
 	 */
+	
 	private Integer id;
 	/**
 	 * 

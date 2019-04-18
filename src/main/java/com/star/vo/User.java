@@ -1,6 +1,7 @@
 package com.star.vo;
 
 
+
 import java.io.Serializable;
 import java.util.Date;
 
@@ -9,27 +10,29 @@ import java.util.Date;
  * 
  * @author zzq
  * @email 972793884@qq.com
- * @date 2018-10-23 15:24:22
+ * @date 2019-04-10 13:55:23
  */
+
 public class User implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	/**
 	 * 
 	 */
+	
 	private Integer id;
 	/**
-	 * 
+	 * 登录名
 	 */
 	private String name;
 	/**
-	 * 
+	 * 密码
 	 */
 	private String password;
 	/**
-	 * 
+	 * 昵称
 	 */
-	private Integer roleid;
+	private String nickName;
 	/**
 	 * 
 	 */
@@ -39,25 +42,25 @@ public class User implements Serializable {
 	 */
 	private Integer isLocked;
 	/**
-	 * 
+	 * 职务/角色  默认初级角色 0超级管理员1学生2老师3工人
 	 */
-	private String phone;
+	private Integer duty;
+	/**
+	 * 根据duty对应的表所对应的的id
+	 */
+	private Integer bindId;
 	/**
 	 * 
 	 */
-	private String email;
+	private Date signInTime;
 	/**
 	 * 
 	 */
-	private String address;
+	private Date lastLoginTime;
 	/**
 	 * 
 	 */
-	private Integer age;
-	/**
-	 * 
-	 */
-	private Date birthday;
+	private Date thisLoginTime;
 
 	/**
 	 * 设置：
@@ -72,40 +75,40 @@ public class User implements Serializable {
 		return id;
 	}
 	/**
-	 * 设置：
+	 * 设置：登录名
 	 */
 	public void setName(String name) {
 		this.name = name;
 	}
 	/**
-	 * 获取：
+	 * 获取：登录名
 	 */
 	public String getName() {
 		return name;
 	}
 	/**
-	 * 设置：
+	 * 设置：密码
 	 */
 	public void setPassword(String password) {
 		this.password = password;
 	}
 	/**
-	 * 获取：
+	 * 获取：密码
 	 */
 	public String getPassword() {
 		return password;
 	}
 	/**
-	 * 设置：
+	 * 设置：昵称
 	 */
-	public void setRoleid(Integer roleid) {
-		this.roleid = roleid;
+	public void setNickName(String nickName) {
+		this.nickName = nickName;
 	}
 	/**
-	 * 获取：
+	 * 获取：昵称
 	 */
-	public Integer getRoleid() {
-		return roleid;
+	public String getNickName() {
+		return nickName;
 	}
 	/**
 	 * 设置：
@@ -132,63 +135,63 @@ public class User implements Serializable {
 		return isLocked;
 	}
 	/**
-	 * 设置：
+	 * 设置：职务/角色  默认初级角色 0超级管理员1学生2老师3工人
 	 */
-	public void setPhone(String phone) {
-		this.phone = phone;
+	public void setDuty(Integer duty) {
+		this.duty = duty;
 	}
 	/**
-	 * 获取：
+	 * 获取：职务/角色  默认初级角色 0超级管理员1学生2老师3工人
 	 */
-	public String getPhone() {
-		return phone;
+	public Integer getDuty() {
+		return duty;
 	}
 	/**
-	 * 设置：
+	 * 设置：根据duty对应的表所对应的的id
 	 */
-	public void setEmail(String email) {
-		this.email = email;
+	public void setBindId(Integer bindId) {
+		this.bindId = bindId;
 	}
 	/**
-	 * 获取：
+	 * 获取：根据duty对应的表所对应的的id
 	 */
-	public String getEmail() {
-		return email;
-	}
-	/**
-	 * 设置：
-	 */
-	public void setAddress(String address) {
-		this.address = address;
-	}
-	/**
-	 * 获取：
-	 */
-	public String getAddress() {
-		return address;
+	public Integer getBindId() {
+		return bindId;
 	}
 	/**
 	 * 设置：
 	 */
-	public void setAge(Integer age) {
-		this.age = age;
+	public void setSignInTime(Date signInTime) {
+		this.signInTime = signInTime;
 	}
 	/**
 	 * 获取：
 	 */
-	public Integer getAge() {
-		return age;
+	public Date getSignInTime() {
+		return signInTime;
 	}
 	/**
 	 * 设置：
 	 */
-	public void setBirthday(Date birthday) {
-		this.birthday = birthday;
+	public void setLastLoginTime(Date lastLoginTime) {
+		this.lastLoginTime = lastLoginTime;
 	}
 	/**
 	 * 获取：
 	 */
-	public Date getBirthday() {
-		return birthday;
+	public Date getLastLoginTime() {
+		return lastLoginTime;
+	}
+	/**
+	 * 设置：
+	 */
+	public void setThisLoginTime(Date thisLoginTime) {
+		this.thisLoginTime = thisLoginTime;
+	}
+	/**
+	 * 获取：
+	 */
+	public Date getThisLoginTime() {
+		return thisLoginTime;
 	}
 }

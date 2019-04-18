@@ -5,9 +5,25 @@ import com.star.vo.Permission;
 import java.util.List;
 
 public interface PermissionService {
-    List<Permission> findPermissonListByRoleId(Integer roleid);
+    List<Permission> findPermissonListByRoleId(Integer userId);
 
     List<Permission> getAll();
 
-    List<Permission> getPermsById(Integer id);
+    List<Permission> getPermsByPerId(Integer id);
+
+    List<Permission> findPermissonListByPermissions(List<Permission> permissionList);
+
+    Integer bindRoles(Integer id, String ids);
+
+    List<Permission> getUsefulPers(Integer id);
+
+    Integer bindPers(Integer id, String ids);
+
+    Integer delBindRole(Integer perId,String roleId);
+
+    Integer delBindPer(Integer per_main, String ids);
+
+    Integer savePer(Permission per);
+
+    Integer delPer(String ids);
 }

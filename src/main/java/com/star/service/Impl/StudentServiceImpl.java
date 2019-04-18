@@ -42,5 +42,10 @@ public class StudentServiceImpl implements StudentService {
         return result;
     }
 
+    @Override
+    public Integer save(Student student) {
+        return studentMapper.save(student);
+    }
+
 
 }

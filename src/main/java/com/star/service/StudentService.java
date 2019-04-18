@@ -12,4 +12,6 @@ public interface StudentService {
     List<Record> all(String name, Integer age);
 
     List<Record> findAll();
+
+    Integer save(Student student);
 }

@@ -30,7 +30,7 @@ public  class PageUtils implements Serializable {
     public Integer getPage() {
         return page;
     }
-    public  void setPageList(List<? extends Object> myList, Integer myPage, Integer MyPageSize){
+    public  PageUtils setPageList(List<? extends Object> myList, Integer myPage, Integer MyPageSize){
         pageSize = MyPageSize;
         max = myList.size();
         maxPage = (int)(Math.ceil((double) max/pageSize));
@@ -40,10 +40,11 @@ public  class PageUtils implements Serializable {
         end = (star+pageSize)>max?max:(star+pageSize);
         if(page==0){
             list=null;
-            return;
+            return null;
         }
         list.clear();
         list.addAll(myList.subList(star, end));
+        return this;
     }
     public void setPage(Integer page) {
         this.page = page;

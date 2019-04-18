@@ -46,7 +46,7 @@ public class ShiroConfiguration {
         filters.put("roles",customAuthorizationRoleFilter());
         filters.put("perms",customAuthorizationPremFilter());
         //登出
-        shiroFilterFactoryBean.setLoginUrl("/login.html");
+        shiroFilterFactoryBean.setLoginUrl("/index.html");
         shiroFilterFactoryBean.setSuccessUrl("/index/index.html");
         shiroFilterFactoryBean.setUnauthorizedUrl("/unauthorize.html");
         shiroFilterFactoryBean.setFilterChainDefinitionMap(map);

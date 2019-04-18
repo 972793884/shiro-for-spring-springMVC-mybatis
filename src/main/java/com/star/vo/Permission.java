@@ -1,6 +1,7 @@
 package com.star.vo;
 
 
+
 import java.io.Serializable;
 import java.util.Date;
 
@@ -9,14 +10,16 @@ import java.util.Date;
  * 
  * @author zzq
  * @email 972793884@qq.com
- * @date 2018-10-30 10:47:43
+ * @date 2019-04-10 13:55:23
  */
+
 public class Permission implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	/**
 	 * 
 	 */
+	
 	private Integer id;
 	/**
 	 * 
@@ -33,7 +36,7 @@ public class Permission implements Serializable {
 	/**
 	 * 
 	 */
-	private Integer needallprems;
+	private Integer needallperms;
 	/**
 	 * 
 	 */
@@ -94,14 +97,14 @@ public class Permission implements Serializable {
 	/**
 	 * 设置：
 	 */
-	public void setNeedallprems(Integer needallprems) {
-		this.needallprems = needallprems;
+	public void setNeedallperms(Integer needallperms) {
+		this.needallperms = needallperms;
 	}
 	/**
 	 * 获取：
 	 */
-	public Integer getNeedallprems() {
-		return needallprems;
+	public Integer getNeedallperms() {
+		return needallperms;
 	}
 	/**
 	 * 设置：
