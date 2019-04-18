@@ -24,6 +24,7 @@ public class ShiroUtil {
         map.put("/**/*.css", "anon");
         map.put("/images/*", "anon");
         map.put("/doRegister", "anon");
+        map.put("/student/package", "anon");
         List<Permission> list = authMapper.findAll();
         //List<UserRole> userRoles=authMapper.findAllUserRoles();
         List<Role> roles = authMapper.findAllRoles();
