@@ -14,8 +14,8 @@ public class PermissionServiceImpl implements PermissionService {
     private AuthMapper authMapper;
 
     @Override
-    public List<Permission> findPermissonListByRoleId(Integer roleid) {
-        return authMapper.findPermissonListByRoleId(roleid);
+    public List<Permission> findPermissonListByRoleId(Integer userId) {
+        return authMapper.findPermissonListByRoleId(userId);
 
     }
 

@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -16,7 +17,7 @@ public class ShiroUtil {
     AuthMapper authMapper;
 
     public Map<String, String> getPermissionMap() {
-        Map<String, String> map = new HashMap<>();
+        Map<String, String> map = new LinkedHashMap<>();
         map.put("/logout", "logout");
         //对所有用户认证anon
         map.put("/doLogin", "anon");
@@ -59,9 +60,9 @@ public class ShiroUtil {
                     }
                 }
             }
-            if (permission.getNeedallprems() == 0&&!prem.equals("")) {
+            if (permission.getNeedallperms() == 0&&!prem.equals("")) {
                 prem += "or";
-            }else if (permission.getNeedallprems() == 1&&!prem.equals("")){
+            }else if (permission.getNeedallperms() == 1&&!prem.equals("")){
                 prem=prem.substring(0,prem.length()-1);
             }
             System.out.println("资源:" + "perms[" + prem + "],roles[" + role + "]" + "    资源路径:" + "/**/" + permission.getUrl());

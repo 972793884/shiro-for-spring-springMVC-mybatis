@@ -33,7 +33,7 @@ public class MyShiroRealm extends AuthorizingRealm {
 
         String name = (String) principalCollection.getPrimaryPrincipal();
         User user = loginService.findByName(name);
-        List<Permission> permissionList = permissionService.findPermissonListByRoleId(user.getRoleid());
+        List<Permission> permissionList = permissionService.findPermissonListByRoleId(user.getId());
         List<Role> roles = authMapper.findRolesByUserId(user.getId());
         SimpleAuthorizationInfo simpleAuthorizationInfo = new SimpleAuthorizationInfo();
         System.out.print("加载用户角色:");

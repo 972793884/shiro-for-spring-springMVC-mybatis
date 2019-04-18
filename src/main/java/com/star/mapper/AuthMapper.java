@@ -8,7 +8,7 @@ import java.util.List;
 
 @Mapper
 public interface AuthMapper {
-    @Select("select * from permission where id in (select permissionid from role_permission where roleid=#{roleid})")
+    @Select("select * from permission where id in (select permissionid from role_permission where roleid in (select roleid from user_role where userid=#{userId}))")
     List<Permission> findPermissonListByRoleId(Integer roleid);
 
     @Select("select * from permission")
