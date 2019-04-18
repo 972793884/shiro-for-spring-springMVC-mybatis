@@ -3,7 +3,6 @@ package com.star.vo;
 
 
 import java.io.Serializable;
-import java.util.Date;
 
 /**
  * 
